@@ -19,12 +19,7 @@ class Post
     /**
      * @ORM\Column(type="string", length=3000)
      */
-    private $context;
-
-    /**
-     * @ORM\Column(type="datetime")
-     */
-    private $datetime;
+    private $content;
 
     /**
      * @ORM\Column(type="datetime")
@@ -36,26 +31,14 @@ class Post
         return $this->id;
     }
 
-    public function getContext(): ?string
+    public function getContent(): ?string
     {
-        return $this->context;
+        return $this->content;
     }
 
-    public function setContext(string $context): self
+    public function setContent(string $content): self
     {
-        $this->context = $context;
-
-        return $this;
-    }
-
-    public function getDatetime(): ?\DateTimeInterface
-    {
-        return $this->datetime;
-    }
-
-    public function setDatetime(\DateTimeInterface $datetime): self
-    {
-        $this->datetime = $datetime;
+        $this->content = $content;
 
         return $this;
     }

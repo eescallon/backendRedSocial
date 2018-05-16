@@ -35,7 +35,6 @@ class UserController extends Controller
             $jsonUser = array();
             $jsonUser["id"] = $user->getId();
             $jsonUser["email"] = $user->getEmail();
-            $jsonUser["points"] = $user->getPoints();
             $person = $user->getIdPerson();
             if($person)
             {
@@ -49,7 +48,7 @@ class UserController extends Controller
         }
         else
         {
-            return $this->json(array("success" => false, "data" => array()));
+            return $this->json(array("success" => false, "message" => "No se encontro el usuario"));
         }
     }
 }

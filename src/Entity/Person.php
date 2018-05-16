@@ -42,17 +42,6 @@ class Person
     private $phonenumber;
 
     /**
-     * @ORM\Column(type="integer")
-     */
-    private $career;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Typeperson")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $idTipo;
-
-    /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Career")
      * @ORM\JoinColumn(nullable=false)
      */
@@ -125,30 +114,6 @@ class Person
     public function setPhonenumber(int $phonenumber): self
     {
         $this->phonenumber = $phonenumber;
-
-        return $this;
-    }
-
-    public function getCareer(): ?int
-    {
-        return $this->career;
-    }
-
-    public function setCareer(int $career): self
-    {
-        $this->career = $career;
-
-        return $this;
-    }
-
-    public function getIdTipo(): ?Typeperson
-    {
-        return $this->idTipo;
-    }
-
-    public function setIdTipo(?Typeperson $idTipo): self
-    {
-        $this->idTipo = $idTipo;
 
         return $this;
     }

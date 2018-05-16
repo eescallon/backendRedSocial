@@ -21,6 +21,18 @@ class Comments
      */
     private $commentary;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Post")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $idpost;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\User")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $iduser;
+
     public function getId()
     {
         return $this->id;
@@ -34,6 +46,30 @@ class Comments
     public function setCommentary(string $commentary): self
     {
         $this->commentary = $commentary;
+
+        return $this;
+    }
+
+    public function getIdpost(): ?Post
+    {
+        return $this->idpost;
+    }
+
+    public function setIdpost(?Post $idpost): self
+    {
+        $this->idpost = $idpost;
+
+        return $this;
+    }
+
+    public function getIduser(): ?User
+    {
+        return $this->iduser;
+    }
+
+    public function setIduser(?User $iduser): self
+    {
+        $this->iduser = $iduser;
 
         return $this;
     }

@@ -16,8 +16,44 @@ class Friends
      */
     private $id;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\User")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $iduser;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\User")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $idfriends;
+
     public function getId()
     {
         return $this->id;
+    }
+
+    public function getIduser(): ?User
+    {
+        return $this->iduser;
+    }
+
+    public function setIduser(?User $iduser): self
+    {
+        $this->iduser = $iduser;
+
+        return $this;
+    }
+
+    public function getIdfriends(): ?User
+    {
+        return $this->idfriends;
+    }
+
+    public function setIdfriends(?User $idfriends): self
+    {
+        $this->idfriends = $idfriends;
+
+        return $this;
     }
 }

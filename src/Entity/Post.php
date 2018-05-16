@@ -26,6 +26,12 @@ class Post
      */
     private $date;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\User")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $iduser;
+
     public function getId()
     {
         return $this->id;
@@ -51,6 +57,18 @@ class Post
     public function setDate(\DateTimeInterface $date): self
     {
         $this->date = $date;
+
+        return $this;
+    }
+
+    public function getIduser(): ?User
+    {
+        return $this->iduser;
+    }
+
+    public function setIduser(?User $iduser): self
+    {
+        $this->iduser = $iduser;
 
         return $this;
     }

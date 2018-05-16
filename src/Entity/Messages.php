@@ -26,6 +26,18 @@ class Messages
      */
     private $date;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\User")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $idusersent;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\User")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $iduserreceiver;
+
     public function getId()
     {
         return $this->id;
@@ -51,6 +63,30 @@ class Messages
     public function setDate(\DateTimeInterface $date): self
     {
         $this->date = $date;
+
+        return $this;
+    }
+
+    public function getIdusersent(): ?User
+    {
+        return $this->idusersent;
+    }
+
+    public function setIdusersent(?User $idusersent): self
+    {
+        $this->idusersent = $idusersent;
+
+        return $this;
+    }
+
+    public function getIduserreceiver(): ?User
+    {
+        return $this->iduserreceiver;
+    }
+
+    public function setIduserreceiver(?User $iduserreceiver): self
+    {
+        $this->iduserreceiver = $iduserreceiver;
 
         return $this;
     }

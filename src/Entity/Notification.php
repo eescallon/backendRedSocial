@@ -26,6 +26,24 @@ class Notification
      */
     private $date;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\User")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $iduser;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\User")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $iduseraction;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Post")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $idpost;
+
     public function getId()
     {
         return $this->id;
@@ -51,6 +69,42 @@ class Notification
     public function setDate(\DateTimeInterface $date): self
     {
         $this->date = $date;
+
+        return $this;
+    }
+
+    public function getIduser(): ?User
+    {
+        return $this->iduser;
+    }
+
+    public function setIduser(?User $iduser): self
+    {
+        $this->iduser = $iduser;
+
+        return $this;
+    }
+
+    public function getIduseraction(): ?User
+    {
+        return $this->iduseraction;
+    }
+
+    public function setIduseraction(?User $iduseraction): self
+    {
+        $this->iduseraction = $iduseraction;
+
+        return $this;
+    }
+
+    public function getIdpost(): ?Post
+    {
+        return $this->idpost;
+    }
+
+    public function setIdpost(?Post $idpost): self
+    {
+        $this->idpost = $idpost;
 
         return $this;
     }
